@@ -1,0 +1,25 @@
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    padding: 24px 16px;
+    gap: 24px;
+
+}
+
+.scoreboard img {
+    width: 16px;
+}
+
+#ball-player, #xis-player {
+    display: flex;
+    gap: 32px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+
+    width: 80px;
+    height: 24px;
+
+    border-radius: 4px;
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.05);
+}
