@@ -27,6 +27,8 @@ function Board() {
             <td id="c3" className="field"></td>
         </tr>
       </table>
+
+      <button id="reset-scoreboard">Zerar Placar</button>
     </>
   );
   }

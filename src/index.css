@@ -6,13 +6,6 @@
   box-sizing: border-box;
 }
 
-#root {
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
 html {
   --gray-light: #D7D7E0;
   --gray-dark: #707070;
@@ -27,5 +20,18 @@ html {
 body {
   text-align: center;
   height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+footer {
+  color: var(--stamina);
+
+  padding: 24px;
+
+  width: 100%;
+
+  align-items: center;
 }
 

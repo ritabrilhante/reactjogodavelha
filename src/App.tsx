@@ -15,7 +15,6 @@ function App() {
         <Scoreboard/>
         <Board/>
         <Modal/>
-        <button id="reset-scoreboard">Zerar Placar</button>
       </main>
 
       <footer>Rita Brilhante | 2021</footer>
