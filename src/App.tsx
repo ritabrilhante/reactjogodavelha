@@ -1,6 +1,7 @@
 import './App.css';
 import Board from './Components/Board/Board';
 import Scoreboard from './Components/Scoreboard/Scoreboard';
+import Modal from './Components/Modal/Modal';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <main>
         <Scoreboard/>
         <Board/>
+        <Modal/>
         <button id="reset-scoreboard">Zerar Placar</button>
       </main>
 

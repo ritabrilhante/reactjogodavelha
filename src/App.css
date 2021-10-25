@@ -21,3 +21,15 @@ main {
 	flex-direction: column;
 	margin: auto 0;
 }
+
+#reset-scoreboard {
+    background-color: var(--white);
+    color: var(--gray-dark);
+
+    height: 40px;
+    padding: 0 8px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
