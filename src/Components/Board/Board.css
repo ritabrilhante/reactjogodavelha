@@ -1,0 +1,30 @@
+table {
+    width: 300px;
+    height: 300px;
+
+    margin: 24px auto;
+}
+
+.field {
+    text-align: center;
+
+    height: 56px;
+    width: 56px;
+}
+
+#a1, #a2, #b1, #b2{
+    border-bottom: .4px solid var(--gray-light);
+    border-right: .4px solid var(--gray-light);
+}
+
+#c1, #c2 {
+    border-right: .4px solid var(--gray-light);
+}
+
+#a3, #b3 {
+    border-bottom: .4px solid var(--gray-light);
+}
+
+img {
+    height: 40px;
+}
