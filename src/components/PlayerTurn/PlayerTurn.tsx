@@ -1,11 +1,10 @@
 import './PlayerTurn.css'
 
-import { useContext } from 'react';
-import { PlayerTurnContext } from '../../App';
+interface Props {
+  turnOf: string;
+}
 
-export default function PlayerTurn() {
-  const turnOf = useContext(PlayerTurnContext);
-
+export default function PlayerTurn({ turnOf }: Props) {
   return(
     <div className="player-turn">
       <p>Vez de:</p>

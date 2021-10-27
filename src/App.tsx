@@ -5,30 +5,32 @@ import Scoreboard from './components/Scoreboard/Scoreboard';
 import Modal from './components/Modal/Modal';
 import PlayerTurn from './components/PlayerTurn/PlayerTurn';
 
-import { createContext } from 'react';
-
-const player1 = "xis";
-const player2 = "ball";
-const turnOf = player1;
-export const PlayerTurnContext = createContext(turnOf);
+import { useState } from 'react';
 
 export default function App() {
+  const [turnOf, setTurnOf] = useState('xis');
+
+  const changeTurnOf = () => {
+    setTurnOf(turnOf === 'xis' ? 'ball' : 'xis');
+
+    console.log('trocou para: ', turnOf);
+  }
 
   return (
-    <PlayerTurnContext.Provider value={turnOf}>
+    <>
       <header>
         <h1>Jogo da Velha</h1>
         <span>Clique para começar!</span>
       </header>
 
       <main>
-        <Scoreboard />
-        <PlayerTurn />
-        <Board />
+        <Scoreboard/>
+        <PlayerTurn turnOf={turnOf} />
+        <Board selectField={() => changeTurnOf()} />
         <Modal />
       </main>
 
       <footer>Rita Brilhante | 2021</footer>
-    </PlayerTurnContext.Provider>
+    </>
   );
 }
