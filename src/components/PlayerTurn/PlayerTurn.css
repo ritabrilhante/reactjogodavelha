@@ -1,0 +1,14 @@
+.player-turn {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+}
+
+.player-turn p  {
+    font-size: 18px;
+}
+
+.player-turn img {
+    width: 16px;
+}

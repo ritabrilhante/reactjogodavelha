@@ -1,13 +1,14 @@
 import './Board.css'
+import { useEffect } from 'react';
+import { useContext } from 'react';
+import { PlayerTurnContext } from '../../App';
 
-function Board() {
+export default function Board(){
+
+  const turnOf = useContext(PlayerTurnContext);
+  console.log(turnOf)
   return (
     <>
-      <div className="player-turn">
-        <p>Vez de:</p>
-        <img id="wich-player" src=""/>
-      </div>
-
       <table>
         <tr id="row-1">
             <td id="a1" className="field"></td>
@@ -31,6 +32,4 @@ function Board() {
       <button id="reset-scoreboard">Zerar Placar</button>
     </>
   );
-  }
-
-export default Board;
+}
