@@ -1,12 +1,6 @@
 import './Board.css'
-import { useEffect } from 'react';
-import { useContext } from 'react';
-import { PlayerTurnContext } from '../../App';
 
 export default function Board(){
-
-  const turnOf = useContext(PlayerTurnContext);
-  console.log(turnOf)
   return (
     <>
       <table>

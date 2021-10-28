@@ -1,15 +1,14 @@
 import './PlayerTurn.css'
 
-import { useContext } from 'react';
-import { PlayerTurnContext } from '../../App';
+interface props {
+  turnOf: string,
+}
 
-export default function PlayerTurn() {
-  const turnOf = useContext(PlayerTurnContext);
-
+export default function PlayerTurn(playerTurnProps: props) {
   return(
     <div className="player-turn">
       <p>Vez de:</p>
-      <img id="wich-player" src={`img/${turnOf}.svg`}/>
+      <img id="wich-player" src={`img/${playerTurnProps.turnOf}.svg`} alt={`Vez de ${playerTurnProps.turnOf}`}/>
     </div>
   );
 }
