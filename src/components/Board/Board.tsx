@@ -1,17 +1,17 @@
 import './Board.css';
-import { useState } from 'react';
 
 interface props {
   turnOf: string,
+  round: number;
   setTurnOf: React.Dispatch<React.SetStateAction<string>>,
   setWinner: React.Dispatch<React.SetStateAction<string>>,
+  setRound: React.Dispatch<React.SetStateAction<number>>,
+  updateScoreboard: () => void
 }
 
 export default function Board(BoardProps: props){
   const fieldsIds = [['a1','a2','a3'],['b1','b2','b3'],['c1','c2','c3']]
-  const {setTurnOf, turnOf, setWinner} = BoardProps; //Desestructuring;
-
-  const [round, setRound] = useState(0);
+  const {setTurnOf, turnOf, setWinner, round, setRound, updateScoreboard} = BoardProps; //Desestructuring;
 
   const winState = [
     ['a1','a2','a3'],
@@ -24,7 +24,7 @@ export default function Board(BoardProps: props){
 
     ['a1','b2','c3'],
     ['c1','b2','a3']
-]
+  ]
 
   function setFields(fieldId:string) {
     const field = document.getElementById(fieldId)
@@ -33,14 +33,14 @@ export default function Board(BoardProps: props){
       field.innerHTML = `<img src="img/${turnOf}.svg">`
     }
 
-    verifyWinner(turnOf, fieldId)
+    const hasWinner = verifyWinner(turnOf, fieldId)
+    if (hasWinner) return
 
     if (turnOf === 'xis') {
       setTurnOf('ball')
     } else {
       setTurnOf('xis')
     }
-
     setRound(round + 1);
     if(round === 8) {
       setWinner('draw')
@@ -54,12 +54,12 @@ export default function Board(BoardProps: props){
         const [id1,id2,id3] = group;
 
         if (fields[id1].innerHTML === fields[id2].innerHTML && fields[id1].innerHTML === fields[id3].innerHTML) {
-            setWinner(player);
+          updateScoreboard();
+          setWinner(player);
           return true;
         };
-    }
-
-    return false;
+  }
+  return false;
 }
 
   return (

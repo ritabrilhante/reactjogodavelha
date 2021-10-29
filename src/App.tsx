@@ -14,6 +14,18 @@ export default function App() {
 
   const [turnOf, setTurnOf] = useState('xis');
   const [winner, setWinner] = useState('')
+  const [round, setRound] = useState(0);
+  const [scoreXis, setScoreXis] = useState(0);
+  const [scoreBall, setScoreBall] = useState(0);
+
+  const updateScoreboard = () => {
+    if (turnOf === 'xis') {
+      setScoreXis(scoreXis + 1)
+    } else {
+      setScoreBall(scoreBall + 1)
+    }
+    console.log(scoreXis, scoreBall)
+  }
 
   return (
 
@@ -24,10 +36,10 @@ export default function App() {
       </header>
 
       <main>
-        <Scoreboard />
+        <Scoreboard scoreXis={scoreXis} scoreBall={scoreBall} />
         <PlayerTurn turnOf={turnOf} />
-        <Board setTurnOf={setTurnOf} turnOf={turnOf} setWinner={setWinner}/>
-        {winner !== '' ? <Modal winner={winner}/> : <></>}
+        <Board setTurnOf={setTurnOf} turnOf={turnOf} setWinner={setWinner} round={round} setRound={setRound} updateScoreboard={updateScoreboard}/>
+        {winner !== '' ? <Modal winner={winner} setWinner={setWinner} setRound={setRound} setTurnOf={setTurnOf}/> : <></>}
       </main>
 
       <footer>Rita Brilhante | 2021</footer>

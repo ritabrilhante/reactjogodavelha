@@ -2,10 +2,22 @@ import './Modal.css'
 
 interface props {
   winner: string,
+  setWinner: React.Dispatch<React.SetStateAction<string>>,
+  setRound: React.Dispatch<React.SetStateAction<number>>,
+  setTurnOf: React.Dispatch<React.SetStateAction<string>>
 }
 
 export default function Modal(ModalProps: props) {
-  const {winner} = ModalProps;
+  const {winner, setWinner, setRound, setTurnOf} = ModalProps;
+
+  function setRefreshBtn() {
+
+  const fieldByClass = Array.from(document.getElementsByClassName("field") as HTMLCollectionOf<HTMLElement>)
+  fieldByClass.map(field => field.innerHTML = "")
+  setWinner('')
+  setRound(0)
+  setTurnOf('xis')
+  }
 
   return(
     <div className="active-modal" id="active">
@@ -13,7 +25,7 @@ export default function Modal(ModalProps: props) {
         <h3 id="text-modal">{winner !== 'draw'? 'O vencedor foi' : 'Empatou'}</h3>
         <img id="winner-image" src={`img/${winner}.svg`}/>
 
-        <button id="refresh">
+        <button id="refresh" onClick={setRefreshBtn}>
           <img src="img/repeat.svg"/>
           Jogar Novamente
         </button>

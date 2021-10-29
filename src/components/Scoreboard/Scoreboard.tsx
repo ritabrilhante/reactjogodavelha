@@ -1,16 +1,22 @@
 import './Scoreboard.css'
 
-export default function Scoreboard() {
+interface props {
+  scoreXis: number,
+  scoreBall: number
+}
+
+export default function Scoreboard(ScoreboardProps: props) {
+  const {scoreXis, scoreBall} = ScoreboardProps;
   return (
     <section className="scoreboard">
       <article id="xis-player">
         <img src="img/xis.svg"/>
-        <p id="result-xis">1</p>
+        <p>{scoreXis}</p>
       </article>
 
       <article id="ball-player">
         <img src="img/ball.svg"/>
-        <p id="result-ball">1</p>
+        <p>{scoreBall}</p>
       </article>
     </section>
   );
