@@ -10,7 +10,7 @@ export default function Modal(ModalProps: props) {
   return(
     <div className="active-modal" id="active">
       <div id="winner-modal">
-        <h3 id="text-modal">O vencedor foi</h3>
+        <h3 id="text-modal">{winner !== 'draw'? 'O vencedor foi' : 'Empatou'}</h3>
         <img id="winner-image" src={`img/${winner}.svg`}/>
 
         <button id="refresh">

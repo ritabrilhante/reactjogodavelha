@@ -1,4 +1,5 @@
 import './Board.css';
+import { useState } from 'react';
 
 interface props {
   turnOf: string,
@@ -9,6 +10,8 @@ interface props {
 export default function Board(BoardProps: props){
   const fieldsIds = [['a1','a2','a3'],['b1','b2','b3'],['c1','c2','c3']]
   const {setTurnOf, turnOf, setWinner} = BoardProps; //Desestructuring;
+
+  const [round, setRound] = useState(0);
 
   const winState = [
     ['a1','a2','a3'],
@@ -36,6 +39,11 @@ export default function Board(BoardProps: props){
       setTurnOf('ball')
     } else {
       setTurnOf('xis')
+    }
+
+    setRound(round + 1);
+    if(round === 8) {
+      setWinner('draw')
     }
   }
 
