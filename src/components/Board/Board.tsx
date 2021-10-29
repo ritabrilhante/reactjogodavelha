@@ -6,32 +6,33 @@ interface props {
 }
 
 export default function Board(BoardProps: props){
+  const fieldsIds = [['a1','a2','a3'],['b1','b2','b3'],['c1','c2','c3']]
+  const {setTurnOf, turnOf} = BoardProps; //Desestructuring;
 
-  function setFields() {
-    const field = document.getElementById('a1')
+  function setFields(fieldId:string) {
+    const field = document.getElementById(fieldId)
+    if (field !== null) {
+      if (field.innerHTML !== '') {return}
+      field.innerHTML = `<img src="img/${turnOf}.svg">`
+    }
+
+    if (turnOf === 'xis') {
+      setTurnOf('ball')
+    } else {
+      setTurnOf('xis')
+    }
   }
-
 
   return (
     <>
       <table>
-        <tr id='row-1'>
-            <td id='a1' className='field'></td>
-            <td id='a2' className='field'></td>
-            <td id='a3' className='field'></td>
-        </tr>
-
-        <tr id='row-2'>
-            <td id='b1' className='field'></td>
-            <td id='b2' className='field'></td>
-            <td id='b3' className='field'></td>
-        </tr>
-
-        <tr id='row-3'>
-            <td id='c1' className='field'></td>
-            <td id='c2' className='field'></td>
-            <td id='c3' className='field'></td>
-        </tr>
+        {fieldsIds.map(row => (
+          <tr>
+            {row.map(fieldId => (
+              <td id={fieldId} className='field' onClick={()=>{setFields(fieldId)}}></td>
+            ))}
+          </tr>
+        ))}
       </table>
 
       <button id='reset-scoreboard'>Zerar Placar</button>
