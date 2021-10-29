@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import './PlayerTurn.css'
 
-interface props {
+export interface props {
   turnOf: string,
 }
 
 export default function PlayerTurn(playerTurnProps: props) {
+
   return(
     <div className="player-turn">
       <p>Vez de:</p>
