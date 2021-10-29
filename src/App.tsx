@@ -13,6 +13,7 @@ export default function App() {
   const player2 = 'ball';
 
   const [turnOf, setTurnOf] = useState('xis');
+  const [winner, setWinner] = useState('')
 
   return (
 
@@ -25,7 +26,7 @@ export default function App() {
       <main>
         <Scoreboard />
         <PlayerTurn turnOf={turnOf} />
-        <Board setTurnOf={setTurnOf} turnOf={turnOf}/>
+        <Board setTurnOf={setTurnOf} turnOf={turnOf} setWinner={setWinner}/>
         <Modal />
       </main>
 
