@@ -6,12 +6,13 @@ interface props {
   setTurnOf: React.Dispatch<React.SetStateAction<string>>,
   setWinner: React.Dispatch<React.SetStateAction<string>>,
   setRound: React.Dispatch<React.SetStateAction<number>>,
-  updateScoreboard: () => void
+  updateScoreboard: () => void,
+  resetGame: () => void,
 }
 
 export default function Board(BoardProps: props){
   const fieldsIds = [['a1','a2','a3'],['b1','b2','b3'],['c1','c2','c3']]
-  const {setTurnOf, turnOf, setWinner, round, setRound, updateScoreboard} = BoardProps; //Desestructuring;
+  const {setTurnOf, turnOf, setWinner, round, setRound, updateScoreboard, resetGame} = BoardProps; //Desestructuring;
 
   const winState = [
     ['a1','a2','a3'],
@@ -74,7 +75,7 @@ export default function Board(BoardProps: props){
         ))}
       </table>
 
-      <button id='reset-scoreboard'>Zerar Placar</button>
+      <button id='reset-scoreboard' onClick={resetGame}>Zerar Placar</button>
     </>
   );
 }

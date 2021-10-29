@@ -4,20 +4,12 @@ interface props {
   winner: string,
   setWinner: React.Dispatch<React.SetStateAction<string>>,
   setRound: React.Dispatch<React.SetStateAction<number>>,
-  setTurnOf: React.Dispatch<React.SetStateAction<string>>
+  setTurnOf: React.Dispatch<React.SetStateAction<string>>,
+  setRefreshBtn: () => void
 }
 
 export default function Modal(ModalProps: props) {
-  const {winner, setWinner, setRound, setTurnOf} = ModalProps;
-
-  function setRefreshBtn() {
-
-  const fieldByClass = Array.from(document.getElementsByClassName("field") as HTMLCollectionOf<HTMLElement>)
-  fieldByClass.map(field => field.innerHTML = "")
-  setWinner('')
-  setRound(0)
-  setTurnOf('xis')
-  }
+  const {winner, setWinner, setRound, setTurnOf, setRefreshBtn} = ModalProps;
 
   return(
     <div className="active-modal" id="active">
