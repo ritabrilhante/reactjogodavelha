@@ -27,7 +27,7 @@ export default function App() {
         <Scoreboard />
         <PlayerTurn turnOf={turnOf} />
         <Board setTurnOf={setTurnOf} turnOf={turnOf} setWinner={setWinner}/>
-        <Modal />
+        {winner !== '' ? <Modal winner={winner}/> : <></>}
       </main>
 
       <footer>Rita Brilhante | 2021</footer>
