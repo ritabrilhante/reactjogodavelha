@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './PlayerTurn.css'
 
 export interface props {

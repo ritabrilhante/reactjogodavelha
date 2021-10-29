@@ -10,12 +10,12 @@ export default function Scoreboard(ScoreboardProps: props) {
   return (
     <section className="scoreboard">
       <article id="xis-player">
-        <img src="img/xis.svg"/>
+        <img src="img/xis.svg" alt="xis"/>
         <p>{scoreXis}</p>
       </article>
 
       <article id="ball-player">
-        <img src="img/ball.svg"/>
+        <img src="img/ball.svg" alt="ball"/>
         <p>{scoreBall}</p>
       </article>
     </section>
